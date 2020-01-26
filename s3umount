@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+USAGE="Usage: s3umount MOUNTPOINT"
+
+if [ $# -ne 1 ] ; then
+  echo missing MOUNTPOINT argument.
+  echo ${USAGE}
+  exit 1
+fi
+
+MOUNTPOINT=$1
+
+fusermount -u ${MOUNTPOINT}
